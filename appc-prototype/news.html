@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News and insights · APPC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="news">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- Template: News archive (home.php / archive.php) -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span>News and insights</nav>
+        <hr class="page-hero__rule">
+        <h1>News and insights</h1>
+        <p>Announcements, member news and practical insights from across the APPC network.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="chips" id="news-filter" aria-label="Filter news by category"></div>
+        <div class="grid grid--3" id="news-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    (function () {
+      const grid = document.getElementById("news-grid");
+      const draw = (cat) => {
+        const items = APPC.news.filter((n) => cat === "All" || n.cat === cat);
+        grid.innerHTML = items.map((n, i) => APPC.render.newsCard(n, cat === "All" && i === 0)).join("");
+      };
+      APPC.chips(document.getElementById("news-filter"), [...new Set(APPC.news.map((n) => n.cat))], draw);
+      draw("All");
+    })();
+  </script>
+</body>
+</html>

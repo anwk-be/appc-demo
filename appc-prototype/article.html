@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>APPC secretariat to move to Bangkok in 2027 · APPC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="news">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- Template: Single article (single.php) -->
+    <section class="page-hero">
+      <div class="container narrow" style="margin-left:auto;margin-right:auto">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="news.html">News</a><span aria-hidden="true">/</span>Announcement</nav>
+        <hr class="page-hero__rule">
+        <h1>APPC secretariat to move to Bangkok in 2027</h1>
+        <div class="article-meta"><span>Announcement</span><span>28 October 2026</span><span>3 min read</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow article-body" style="margin-left:auto;margin-right:auto">
+        <p class="sample-note">Sample article written for the prototype. Replace with the secretariat's approved text.</p>
+        <div class="placeholder-img"><span data-icon="image"></span></div>
+        <p class="lead">After three decades in Singapore, the APPC secretariat will move to Bangkok, Thailand, in 2027.</p>
+        <p>The move was approved by members at the 2026 General Assembly. Bangkok sits close to the centre of our network, with direct flights to most member capitals and a strong community of regional postal and logistics organisations.</p>
+        <blockquote>"Moving to Bangkok puts the secretariat closer to the people we serve and the partners we work with."</blockquote>
+        <h2>What changes for members</h2>
+        <p>Very little day to day. Our email address, the member community and all programmes continue as normal. We will share the new office address and a timeline for the move in early 2027.</p>
+        <h2>What happens next</h2>
+        <ul>
+          <li>Early 2027: new office address confirmed</li>
+          <li>Mid 2027: secretariat begins operating from Bangkok</li>
+          <li>June 2027: first General Assembly hosted from the new office</li>
+        </ul>
+        <p>Questions about the move? <a href="contact.html?type=general">Contact the secretariat</a>.</p>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-head">
+          <h2>More news</h2>
+          <a class="link-arrow" href="news.html">View all <span data-icon="arrow"></span></a>
+        </div>
+        <div class="grid grid--3" id="more-news"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    document.getElementById("more-news").innerHTML = APPC.news.slice(1, 4).map((n) => APPC.render.newsCard(n)).join("");
+  </script>
+</body>
+</html>

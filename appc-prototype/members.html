@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Members · APPC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="members">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- Template: Member directory (archive-member.php, one "Member" post per post) -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span>Members</nav>
+        <hr class="page-hero__rule">
+        <h1>Our 28 member posts</h1>
+        <p>Postal operators from West Asia to the Pacific Islands. Select a post on the map or in the list to see its profile.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="chips" id="region-filter" aria-label="Filter members by region"></div>
+        <div class="members-layout">
+          <div>
+            <div class="map-wrap" id="members-map"></div>
+          </div>
+          <aside class="profile-panel" id="profile-panel" aria-live="polite">
+            <span class="eyebrow">Member profile</span>
+            <h3>Select a member</h3>
+            <p class="empty">Choose a dot on the map or a card below to see the post's profile.</p>
+          </aside>
+        </div>
+        <h2 class="sr-only">All members</h2>
+        <div class="grid grid--4" id="member-grid" style="margin-top:32px"></div>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h2>Is your post in Asia or the Pacific?</h2>
+            <p>Find out who can join and what membership includes.</p>
+          </div>
+          <a class="btn btn--accent" href="membership.html">Membership</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
