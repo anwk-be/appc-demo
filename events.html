@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events · APPC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="events">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- Template: Events (archive-event.php, uses The Events Calendar or a simple "Event" post type) -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span>Events</nav>
+        <hr class="page-hero__rule">
+        <h1>Events</h1>
+        <p>General Assemblies, workshops and online clinics for member posts and partners.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container narrow" style="margin-left:auto;margin-right:auto">
+        <p class="sample-note">Sample events. app.coop currently lists only placeholder events, so these show how real ones will look.</p>
+        <div class="section-head"><h2>Upcoming</h2></div>
+        <ul class="event-list" data-render="events-upcoming"></ul>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container narrow" style="margin-left:auto;margin-right:auto">
+        <div class="section-head"><h2>Past highlights</h2></div>
+        <ul class="event-list" data-render="events-past"></ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h2>Sponsor an APPC event</h2>
+            <p>Meet decision makers from 28 postal operators at our General Assembly and workshops.</p>
+          </div>
+          <a class="btn btn--accent" href="partner.html">Partner with us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>

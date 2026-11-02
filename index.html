@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asia Pacific Post Cooperative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- Template: Home (front-page.php) -->
+    <section class="home-hero">
+      <div class="container">
+        <div class="home-hero__grid">
+          <div>
+            <span class="eyebrow">Asia Pacific Post Cooperative</span>
+            <h1>28 postal operators. <em>One Asia Pacific network.</em></h1>
+            <p class="lead">APPC helps the region's posts work better together on quality, cross-border e-commerce and shared know-how.</p>
+            <div class="btn-row">
+              <a class="btn btn--primary" href="membership.html">Why join APPC</a>
+              <a class="btn btn--ghost-light" href="partner.html">Partner with us</a>
+            </div>
+          </div>
+          <div class="hero-visual" id="hero-visual" aria-hidden="true"></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="stat__num">28</span><span class="stat__label">member posts</span></div>
+          <div class="stat"><span class="stat__num">1994</span><span class="stat__label">working together since</span></div>
+          <div class="stat"><span class="stat__num">4.5bn</span><span class="stat__label">people served by our members</span></div>
+          <div class="stat"><span class="stat__num">2027</span><span class="stat__label">secretariat moves to Bangkok</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">News and insights</span>
+            <h2>Latest from APPC</h2>
+          </div>
+          <a class="link-arrow" href="news.html">View all news <span data-icon="arrow"></span></a>
+        </div>
+        <div class="grid grid--3" data-render="news" data-limit="3"></div>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Our members</span>
+            <h2>A network across the region</h2>
+            <p>From Iran to Fiji and Mongolia to New Zealand. Select a dot to meet a member post.</p>
+          </div>
+          <a class="link-arrow" href="members.html">See all 28 members <span data-icon="arrow"></span></a>
+        </div>
+        <div class="map-wrap" id="home-map"></div>
+      </div>
+    </section>
+
+    <section class="section section--navy">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Why join APPC</span>
+            <h2>Stronger together than alone</h2>
+          </div>
+          <a class="link-arrow" href="membership.html">How to join <span data-icon="arrow"></span></a>
+        </div>
+        <div class="grid grid--4">
+          <div class="benefit"><span class="benefit__icon" data-icon="users"></span><h3>A regional voice</h3><p>Shape positions with 27 other posts before they reach APPU and UPU meetings.</p></div>
+          <div class="benefit"><span class="benefit__icon" data-icon="shield"></span><h3>Better quality of service</h3><p>Hands-on support with the UPU Quality of Service Fund and Common Fund applications.</p></div>
+          <div class="benefit"><span class="benefit__icon" data-icon="box"></span><h3>Cross-border growth</h3><p>ePacket, the Cross Border Passport and shared data to grow e-commerce volumes.</p></div>
+          <div class="benefit"><span class="benefit__icon" data-icon="chat"></span><h3>A private member community</h3><p>Ask peers, share documents and join working groups in one secure space.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="split split--top">
+          <div>
+            <div class="section-head">
+              <div><span class="eyebrow">Events</span><h2>Coming up</h2></div>
+              <a class="link-arrow" href="events.html">All events <span data-icon="arrow"></span></a>
+            </div>
+            <ul class="event-list" data-render="events-upcoming" data-limit="3"></ul>
+          </div>
+          <div>
+            <div class="section-head">
+              <div><span class="eyebrow">What we do</span><h2>Our programmes</h2></div>
+              <a class="link-arrow" href="what-we-do.html">All programmes <span data-icon="arrow"></span></a>
+            </div>
+            <div class="grid grid--2" data-render="programmes" data-limit="4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint">
+      <div class="container">
+        <div class="callout">
+          <div>
+            <h2>Already a member?</h2>
+            <p>Sign in to the member community for working groups, shared documents and peer discussions.</p>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn--accent" href="login.html"><span data-icon="lock"></span>Member login</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+  <script>
+    // Hero visual: the member network as a constellation linked to Bangkok
+    (function () {
+      const W = 600, H = 450, hq = [((100.5 - 40) / 142) * W, ((52 - 13.75) / 100) * H];
+      const pts = APPC.members.map((m) => [((m.lon - 40) / 142) * W, ((52 - m.lat) / 100) * H]);
+      document.getElementById("hero-visual").innerHTML = `
+        <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">
+          <g stroke="#F2B705" stroke-opacity=".35" stroke-width="1">${pts.map(([x, y]) => `<line x1="${hq[0]}" y1="${hq[1]}" x2="${x}" y2="${y}"/>`).join("")}</g>
+          <g fill="#C8102E" stroke="#0B2545" stroke-width="2">${pts.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="6"/>`).join("")}</g>
+          <circle cx="${hq[0]}" cy="${hq[1]}" r="18" fill="#F2B705" fill-opacity=".25"/>
+          <circle cx="${hq[0]}" cy="${hq[1]}" r="9" fill="#F2B705" stroke="#0B2545" stroke-width="2"/>
+        </svg>`;
+    })();
+  </script>
+</body>
+</html>
