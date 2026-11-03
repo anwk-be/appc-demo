@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help exchange · APPC Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="community" data-cm="help">
+  <div id="cm-top"></div>
+  <div class="cm-shell">
+    <div id="cm-side"></div>
+    <main class="cm-main" id="main">
+      <div class="cm-head">
+        <div><h1>Help exchange</h1><p>Big post helps small post. Ask for help with a specific problem, or offer what your post already knows.</p></div>
+        <button class="btn btn--primary" type="button" id="new-request"><span data-ic="plus"></span>Ask for help</button>
+      </div>
+      <p class="concept-note">Concept idea: the Help exchange is a dedicated group using standard discussion features (posts tagged "Request" or "Offer"), so it works on either platform.</p>
+
+      <div class="match-banner">
+        <div class="match-pair"><span class="pic pic--me">MT</span><span data-ic="arrow"></span><span class="pic">KM</span></div>
+        <div><strong style="color:var(--ink)">Your request matches an offer</strong><br>Japan Post's clinic on US duty collection fits your request for counter staff training. 1 spot left.</div>
+        <button class="btn btn--accent" type="button" data-once="Spot requested" data-msg="Request sent to Japan Post. Kenji will message you to agree a time.">Request the last spot</button>
+      </div>
+
+      <div class="help-cols">
+        <section aria-labelledby="req-h">
+          <h2 class="col-title" id="req-h"><span class="icon-tile" data-ic="help"></span>Requests</h2>
+          <div id="requests"></div>
+        </section>
+        <section aria-labelledby="off-h">
+          <h2 class="col-title" id="off-h"><span class="icon-tile" style="background:var(--yellow)" data-ic="star"></span>Offers</h2>
+          <div id="offers"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="cm-modal" id="req-dialog">
+    <form method="dialog">
+      <div class="cm-modal__head"><h2>Ask for help</h2><button class="cm-icon-btn" style="color:var(--navy)" value="cancel" aria-label="Close" data-ic="close"></button></div>
+      <div class="cm-modal__body form">
+        <div class="field"><label for="r-title">What do you need?</label><input id="r-title" placeholder="For example: a template for staff training"></div>
+        <div class="field"><label for="r-text">A little more detail</label><textarea id="r-text" rows="3" placeholder="What have you tried? What would help most?"></textarea></div>
+        <div class="field"><label for="r-group">Group</label><select id="r-group"></select></div>
+        <div><button class="btn btn--primary" value="post">Post request</button></div>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
+  <script src="../js/community.js"></script>
+  <script>
+    (function () {
+      const req = document.getElementById("requests");
+      req.innerHTML = CM.help.requests.map((h) => CM.render.helpCard(h, "request")).join("");
+      document.getElementById("offers").innerHTML = CM.help.offers.map((h) => CM.render.helpCard(h, "offer")).join("");
+
+      const dlg = document.getElementById("req-dialog");
+      document.getElementById("r-group").innerHTML = CM.groups.map((g) => `<option value="${g.id}">${g.title}</option>`).join("");
+      document.getElementById("new-request").addEventListener("click", () => dlg.showModal());
+      dlg.addEventListener("close", () => {
+        const title = document.getElementById("r-title").value.trim();
+        if (dlg.returnValue !== "post" || !title) return;
+        const h = { by: CM.me.id, title, text: document.getElementById("r-text").value.trim() || "Details to follow.", group: document.getElementById("r-group").value, offers: 0 };
+        req.insertAdjacentHTML("afterbegin", CM.render.helpCard(h, "request").replace('class="help-card"', 'class="help-card reply--new"'));
+        document.getElementById("r-title").value = ""; document.getElementById("r-text").value = "";
+        CM.toast("Request posted. Members who can help with this topic will be notified.");
+      });
+    })();
+  </script>
+</body>
+</html>

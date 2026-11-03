@@ -13,20 +13,17 @@
   <div id="site-header"></div>
 
   <main id="main" class="login-shell">
-    <!-- Not a WordPress template: the button links out to the member community platform -->
+    <!-- Not a WordPress template: in the live site this is the community platform's own sign-in page -->
     <div class="login-card">
-      <span class="proto-flag">Prototype placeholder</span>
-      <h1>Member community</h1>
-      <p>In the live site, "Member login" takes members straight to the private APPC community platform, where they sign in.</p>
-      <ul class="check-list">
-        <li><span data-icon="check"></span>Working groups and discussions</li>
-        <li><span data-icon="check"></span>Meeting papers and shared documents</li>
-        <li><span data-icon="check"></span>Member directory and contacts</li>
-      </ul>
-      <div class="btn-row">
-        <a class="btn btn--navy" href="index.html">Back to the website</a>
-      </div>
-      <p style="margin:20px 0 0;font-size:15px">Not a member yet? <a href="membership.html">See how to join</a></p>
+      <span class="proto-flag">Concept · nothing is sent</span>
+      <h1>APPC member community</h1>
+      <p>Working groups, shared files and peers from 28 member posts.</p>
+      <form class="form" action="community/index.html">
+        <div class="field"><label for="login-email">Work email</label><input id="login-email" type="email" value="mere.tuilagi@postfiji.example" readonly></div>
+        <button class="btn btn--navy" type="submit" style="justify-content:center"><span data-icon="lock"></span>Sign in to the community</button>
+      </form>
+      <p style="margin:16px 0 0;font-size:14px;color:var(--muted)">Your post nominates who gets access. Ask your APPC contact or <a href="contact.html?type=membership">the secretariat</a>.</p>
+      <p style="margin:12px 0 0;font-size:15px">Not a member yet? <a href="membership.html">See how to join</a></p>
     </div>
   </main>
 

@@ -32,3 +32,20 @@ Static, clickable prototype of the redesigned APPC website. Open `index.html` in
 - **History timeline** (2000s and 2010s entries) and **office hours** on the Contact page are placeholders to confirm.
 - **Member websites** are filled in only where well known. The rest show "To be added".
 - **Board and secretariat names** come from app.coop.
+
+## Member community concept
+
+Clicking **Member login**, then **Sign in to the community**, opens a concept of the private member community (`community/`). It doesn't depend on any platform, follows the proposal (Zoho CommunitySpaces recommended, BuddyBoss as the alternative), and uses APPC branding. The visitor is signed in as a customs lead at Post Fiji, a smaller post, to show "big post helps small post".
+
+| Screen | File | What it shows |
+|---|---|---|
+| Home | community/index.html | Feed across your groups, ask-the-network composer, secretariat announcement, poll, events with RSVP, weekly digest preview |
+| Groups | community/groups.html | The 8 functional groups from the proposal, Regulatory and customs marked as the pilot |
+| Group | community/group.html | Pilot group: discussions, library, members, monthly question |
+| Q&A thread | community/thread.html | Post Fiji asks about US duty collection; Japan Post's playbook is the accepted answer |
+| Help exchange | community/help.html | Posts post requests and offers; a request is matched with an offer |
+| Directory | community/directory.html | Find your counterpart at another post by topic, post or group |
+
+Use **Show proposal features** (bottom right) to label each part with the proposal feature it demonstrates, marked as Pilot or Later.
+
+All people, posts, numbers and files in the community are sample content. The Help exchange is our own concept idea, built from standard discussion features, so it works on either platform.

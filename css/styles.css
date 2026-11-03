@@ -73,7 +73,7 @@ p { margin: 0 0 1em; }
 .btn--accent:hover { background: var(--yellow-dark); color: var(--navy); }
 .btn--navy { background: var(--navy); color: var(--white); }
 .btn--navy:hover { background: var(--navy-2); color: var(--white); }
-.btn--ghost-light { color: var(--white); border-color: rgba(255,255,255,.6); }
+.btn--ghost-light { background: transparent; color: var(--white); border-color: rgba(255,255,255,.6); }
 .btn--ghost-light:hover { background: var(--white); color: var(--navy); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
 .link-arrow { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; text-decoration: none; color: var(--link); }
@@ -357,3 +357,4 @@ p { margin: 0 0 1em; }
 .card > .btn { align-self: flex-start; }
 body { display: flex; flex-direction: column; min-height: 100vh; }
 main { flex: 1; }
+[hidden] { display: none !important; }

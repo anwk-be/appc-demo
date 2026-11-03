@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collecting duty on US-bound parcels · APPC Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="community" data-cm="groups" data-group="regulatory">
+  <div id="cm-top"></div>
+  <div class="cm-shell">
+    <div id="cm-side"></div>
+    <main class="cm-main" id="main">
+      <nav class="breadcrumb" aria-label="Breadcrumb" style="color:var(--muted);margin-bottom:16px"><a href="groups.html" style="color:var(--link)">Groups</a><span aria-hidden="true">/</span><a href="group.html" style="color:var(--link)">Regulatory and customs</a><span aria-hidden="true">/</span>Question</nav>
+
+      <div class="cm-cols">
+        <div>
+          <article class="post thread-q" style="margin-top:0" data-feature="Pilot · Discussions and Q&A">
+            <div class="post__head" id="q-head"></div>
+            <h1 style="font-size:26px;margin:16px 0 8px">How are you collecting duty on US-bound parcels now that de minimis has ended?</h1>
+            <p>We paused most US-bound parcels after 29 August 2025 and want to restart safely. Which duty collection model are you using, and how did you train counter staff?</p>
+            <p>We're a small team, so templates or a short call would help a lot.</p>
+            <div class="post__actions">
+              <button class="act" type="button" data-helpful aria-pressed="false"><span data-ic="thumb"></span>Same question <b>14</b></button>
+              <button class="act" type="button" data-once="Following" data-msg="You'll be notified about new replies.">Follow</button>
+              <span class="post__posts" id="q-posts"></span>
+            </div>
+
+            <div id="replies" style="margin-top:8px"></div>
+
+            <div class="composer" style="margin-top:16px;padding-top:16px;border-top:1px solid var(--line)">
+              <span class="pic pic--me" aria-hidden="true">MT</span>
+              <div class="composer__box">
+                <label class="sr-only" for="reply-box">Write a reply</label>
+                <textarea id="reply-box" rows="3" placeholder="Share how your post handles this…"></textarea>
+                <div class="composer__bar">
+                  <button class="act" type="button" data-toast="Prototype: attach a file from your computer or the group library."><span data-ic="clip"></span>Attach</button>
+                  <button class="btn btn--primary" type="button" id="reply-send">Reply</button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <aside>
+          <div class="panel" data-feature="Pilot · Document library">
+            <h2>Files in this thread</h2>
+            <div id="files"></div>
+          </div>
+          <div class="panel" data-feature="Pilot · Member directory">
+            <h2>People who can help</h2>
+            <ul class="mini-list" id="helpers"></ul>
+          </div>
+          <div class="panel">
+            <h2>Why this matters</h2>
+            <p style="margin:0;font-size:15px">When the US ended de minimis, each post worked out compliance alone. In the community, one answer from a larger post now helps every post that asks next.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
+  <script src="../js/community.js"></script>
+  <script>
+    (function () {
+      const me = CM.me;
+      document.getElementById("q-head").innerHTML = `${CM.pic(me)}<div class="post__who">${CM.byline(me)}<br>${me.role} · 2 days ago</div><span class="post__kind"><span class="pill pill--green">Answered</span></span>`;
+      document.getElementById("q-posts").innerHTML = ["NZ", "JP", "SG", "LK"].map((c) => `<span class="pic pic--sm">${c}</span>`).join("") + '<span style="margin-left:6px">4 posts replied</span>';
+
+      const replies = [
+        { by: "aroha", ago: "2 days ago", helpful: 6, text: "We restarted in stages: documents first, then low-value goods with duty collected at the counter. The hardest part was retraining staff on item descriptions. Happy to share our counter checklist." },
+        { by: "kenji", ago: "1 day ago", helpful: 19, accepted: true,
+          text: "We use a delivered-duty-paid model through a qualified party. Our playbook covers counter scripts, the data fields we capture, and a two-hour staff training plan. I've attached it below. I'm also running a clinic for any post planning a restart. Sign up in the Help exchange.",
+          files: [["US duty collection playbook", "PDF · 2.1 MB"]] },
+        { by: "daniel", ago: "1 day ago", helpful: 8, text: "Adding to Kenji's answer: check your advance data quality before restarting. We saw most rejections from vague item descriptions. Our field checklist is in the group library." },
+        { by: "nimal", ago: "5 hours ago", helpful: 2, text: "Sri Lanka Post is at the same stage as Post Fiji. Could we join the clinic together?" }
+      ];
+      const fileChip = ([t, m]) => `<a class="file-chip" href="#" data-toast="Prototype: downloads aren't connected.">${CM.ic("file")}${t} <small>${m}</small></a>`;
+      const replyHTML = (r) => {
+        const p = CM.person(r.by);
+        return `<div class="reply${r.accepted ? " is-accepted" : ""}${r.isNew ? " reply--new" : ""}">
+          ${CM.pic(p)}
+          <div class="reply__body">
+            <div class="post__who">${CM.byline(p)} · ${p.role}${p.mod === "regulatory" ? ' · <span class="pill pill--muted">Moderator</span>' : ""}<br>${r.ago}</div>
+            ${r.accepted ? `<span class="accepted-flag">${CM.ic("check")}Accepted answer, marked by Post Fiji</span>` : ""}
+            <p>${r.text}</p>
+            ${(r.files || []).map(fileChip).join("")}
+            <div class="post__actions" style="border:0;padding-top:0">
+              <button class="act" type="button" data-helpful aria-pressed="false">${CM.ic("thumb")}Helpful <b>${r.helpful}</b></button>
+              ${p.id !== me.id ? `<button class="act" type="button" data-message="${p.id}">${CM.ic("send")}Message ${p.name.split(" ")[0]}</button>` : ""}
+              ${!r.accepted && p.id !== me.id ? `<button class="act" type="button" data-accept>${CM.ic("check")}Mark as answer</button>` : ""}
+            </div>
+          </div>
+        </div>`;
+      };
+      const list = document.getElementById("replies");
+      list.innerHTML = replies.map(replyHTML).join("");
+      list.addEventListener("click", (e) => {
+        if (!e.target.closest("[data-accept]")) return;
+        e.target.closest(".reply").classList.add("is-accepted");
+        e.target.closest("[data-accept]").remove();
+        CM.toast("Marked as an answer. It now shows first for anyone who searches this question.");
+      });
+
+      document.getElementById("reply-send").addEventListener("click", () => {
+        const box = document.getElementById("reply-box");
+        if (!box.value.trim()) { box.focus(); return; }
+        list.insertAdjacentHTML("beforeend", replyHTML({ by: me.id, ago: "Just now", helpful: 0, text: box.value.trim(), isNew: true }));
+        box.value = "";
+        CM.toast("Reply posted. Everyone following this question gets a notification.");
+      });
+
+      document.getElementById("files").innerHTML = CM.files.slice(0, 3).map(CM.render.file).join("");
+      document.getElementById("helpers").innerHTML = ["kenji", "aroha", "daniel"].map((id) => {
+        const p = CM.person(id);
+        return `<li>${CM.pic(p)}<div style="flex:1"><strong>${p.name}</strong><span class="muted">${CM.post(p.org).name} · ${p.helps.join(", ")}</span><br><button class="btn btn--secondary btn--sm" type="button" data-message="${p.id}" style="margin-top:6px">Message</button></div></li>`;
+      }).join("");
+    })();
+  </script>
+</body>
+</html>

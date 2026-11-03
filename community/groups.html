@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Groups · APPC Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="community" data-cm="groups">
+  <div id="cm-top"></div>
+  <div class="cm-shell">
+    <div id="cm-side"></div>
+    <main class="cm-main" id="main">
+      <div class="cm-head">
+        <div><h1>Groups</h1><p>One group per function, so you only see what's relevant to your role. Each has a moderator from a member post.</p></div>
+      </div>
+      <div class="group-grid" id="group-grid" data-feature="Pilot · Private groups"></div>
+
+      <div class="panel" style="margin-top:28px" data-feature="Pilot · Moderation">
+        <h2>How groups stay active</h2>
+        <div class="grid grid--3" style="gap:20px">
+          <div><strong style="color:var(--ink)">A named moderator</strong><p style="margin:4px 0 0;font-size:15px">Approves new posts and files, and keeps discussions on topic.</p></div>
+          <div><strong style="color:var(--ink)">A monthly rhythm</strong><p style="margin:4px 0 0;font-size:15px">One question or webinar a month gives members a reason to come back.</p></div>
+          <div><strong style="color:var(--ink)">Restricted joining</strong><p style="margin:4px 0 0;font-size:15px">Anyone at a member post can see a group and ask to join. Moderators approve.</p></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
+  <script src="../js/community.js"></script>
+  <script>
+    document.getElementById("group-grid").innerHTML = CM.groups.map(CM.render.groupCard).join("");
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home · APPC Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="community" data-cm="home">
+  <div id="cm-top"></div>
+  <div class="cm-shell">
+    <div id="cm-side"></div>
+    <main class="cm-main" id="main">
+      <p class="concept-note">Concept prototype. People, posts and numbers are sample content. Platform to be confirmed (Zoho CommunitySpaces recommended, BuddyBoss alternative).</p>
+      <div class="cm-head">
+        <div><h1>Good morning, Mere</h1><p>What's new in your groups since Monday.</p></div>
+        <button class="btn btn--secondary" type="button" id="digest-btn" data-feature="Pilot · Email digest"><span data-ic="mail"></span>Preview weekly digest</button>
+      </div>
+
+      <div class="cm-cols">
+        <div>
+          <div class="panel" data-feature="Pilot · Discussions and Q&A">
+            <div class="composer">
+              <span class="pic pic--me" aria-hidden="true">MT</span>
+              <div class="composer__box">
+                <label class="sr-only" for="compose">Start a discussion or ask the network</label>
+                <textarea id="compose" rows="2" placeholder="Ask the network a question, or share an update…"></textarea>
+                <div class="composer__bar">
+                  <div class="type-toggle" role="group" aria-label="Post type">
+                    <button type="button" aria-pressed="true" data-kind="Question">Question</button>
+                    <button type="button" aria-pressed="false" data-kind="Discussion">Discussion</button>
+                  </div>
+                  <label class="sr-only" for="compose-group">Group</label>
+                  <select id="compose-group"></select>
+                  <button class="act" type="button" data-toast="Prototype: attach a PDF, image or spreadsheet.">Attach file</button>
+                  <button class="btn btn--primary" type="button" id="compose-send">Post</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <article class="post post--announce" data-feature="Pilot · Announcements">
+            <div class="post__head"><span class="pic pic--appc" aria-hidden="true">APP</span><div class="post__who"><strong>APPC secretariat</strong><br>Announcement to all members · Pinned</div>
+              <span class="post__kind"><span class="pill">Announcement</span></span></div>
+            <h3>All 8 groups are now open</h3>
+            <p>Thank you to the Regulatory and customs pilot group. All member posts can now join every group. Each group has a named moderator and a monthly question to get things going.</p>
+            <div class="post__actions">
+              <button class="act" type="button" data-helpful aria-pressed="false"><span data-ic="thumb"></span>Helpful <b>41</b></button>
+              <a class="act" href="groups.html"><span data-ic="grid"></span>Browse groups</a>
+            </div>
+          </article>
+
+          <div id="feed"></div>
+
+          <article class="post poll" id="poll" data-feature="Later · Polls and surveys">
+            <div class="post__head"><span class="pic pic--appc" aria-hidden="true">APP</span><div class="post__who"><strong>APPC secretariat</strong><br>in <a href="group.html">Regulatory and customs</a> · Poll closes Friday</div>
+              <span class="post__kind"><span class="pill pill--muted">Poll</span></span></div>
+            <h3>Where is your post on US-bound parcels today?</h3>
+            <p>One answer per post. Results help the Board prepare APPC's position for the next UPU meeting.</p>
+            <div id="poll-opts"></div>
+            <p class="meta" id="poll-meta">19 of 28 posts have answered</p>
+          </article>
+        </div>
+
+        <aside>
+          <div class="panel" data-feature="Pilot · Private groups">
+            <h2>My groups <a href="groups.html">All groups</a></h2>
+            <ul class="mini-list" id="my-groups"></ul>
+          </div>
+          <div class="panel" data-feature="Pilot · Events calendar">
+            <h2>Upcoming</h2>
+            <ul class="mini-list" id="events"></ul>
+          </div>
+          <div class="panel">
+            <h2>Help exchange <a href="help.html">Open</a></h2>
+            <ul class="mini-list">
+              <li><span class="pic">JP</span><div><strong>Match for your request</strong><span class="muted">Japan Post's US duty clinic matches your training request. 1 spot left.</span></div></li>
+              <li><span class="pic">NZ</span><div><strong>New offer</strong><span class="muted">New Zealand Post shared its returns playbook.</span></div></li>
+            </ul>
+          </div>
+          <div class="panel" data-feature="Later · Engagement analytics">
+            <h2>This month in the community</h2>
+            <div class="stat-row">
+              <div><b>27</b><span>of 28 posts active</span></div>
+              <div><b>186</b><span>active members</span></div>
+              <div><b>412</b><span>replies</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <dialog class="cm-modal" id="digest">
+    <div class="cm-modal__head"><h2>Weekly digest email (preview)</h2><form method="dialog"><button class="cm-icon-btn" style="color:var(--navy)" aria-label="Close" data-ic="close"></button></form></div>
+    <div class="cm-modal__body digest" data-feature="Pilot · Email digest">
+      <div class="digest__mast"><small>APPC Community · Monday</small><br><strong>5 things your peers shared this week</strong></div>
+      <div class="digest__body">
+        <h3>Answered</h3>
+        <ul><li><a href="thread.html">How are you collecting duty on US-bound parcels?</a> Japan Post shared its playbook</li></ul>
+        <h3>In your groups</h3>
+        <ul>
+          <li>Operations: transit delays through the Bangkok hub this week</li>
+          <li>Capability building: 3 new help offers, including mentoring for Pacific posts</li>
+        </ul>
+        <h3>Coming up</h3>
+        <ul><li>12 May · Webinar: restarting US-bound parcels (38 going)</li></ul>
+        <p style="margin-top:16px"><a class="btn btn--primary btn--sm" href="index.html">Open the community</a></p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
+  <script src="../js/community.js"></script>
+  <script>
+    (function () {
+      const feed = document.getElementById("feed");
+      feed.innerHTML = CM.threads.map((t) => CM.render.thread(t)).join("");
+
+      document.getElementById("my-groups").innerHTML = CM.myGroups.map((id) => {
+        const g = CM.group(id);
+        return `<li><span class="icon-tile" style="width:40px;height:40px;margin:0">${CM.ic(g.icon)}</span><div><strong><a href="group.html" style="color:inherit;text-decoration:none">${g.title}</a></strong><span class="muted">${g.week} new posts this week</span></div></li>`;
+      }).join("");
+      document.getElementById("events").innerHTML = CM.events.map(CM.render.event).join("");
+
+      // Composer: posts appear at the top of the feed, pending moderator approval
+      const sel = document.getElementById("compose-group");
+      sel.innerHTML = CM.groups.map((g) => `<option value="${g.id}">${g.title}</option>`).join("");
+      let kind = "Question";
+      document.querySelectorAll(".type-toggle button").forEach((b) => b.addEventListener("click", () => {
+        kind = b.dataset.kind;
+        document.querySelectorAll(".type-toggle button").forEach((x) => x.setAttribute("aria-pressed", x === b));
+      }));
+      document.getElementById("compose-send").addEventListener("click", () => {
+        const box = document.getElementById("compose");
+        const text = box.value.trim();
+        if (!text) { box.focus(); return; }
+        const t = { group: sel.value, kind, by: CM.me.id, ago: "Just now", replies: 0, helpful: 0, title: text.length > 90 ? text.slice(0, 90) + "…" : text, text: "", posts: [] };
+        feed.insertAdjacentHTML("afterbegin", CM.render.thread(t).replace('class="post"', 'class="post reply--new" data-feature="Pilot · Moderation"'));
+        box.value = "";
+        CM.toast(`Posted to ${CM.group(sel.value).title}. Members of 28 posts can now reply.`);
+      });
+
+      // Poll: vote once, then show results across posts
+      const opts = [["Fully resumed", 9], ["Partly resumed (some services only)", 6], ["Still suspended", 3], ["Never suspended", 1]];
+      const pollEl = document.getElementById("poll");
+      const wrap = document.getElementById("poll-opts");
+      wrap.innerHTML = opts.map(([label], i) => `<button class="opt" type="button" data-i="${i}"><i class="bar"></i><span><b style="font-weight:inherit">${label}</b><em class="pct" style="font-style:normal"></em></span></button>`).join("");
+      wrap.addEventListener("click", (e) => {
+        const b = e.target.closest(".opt");
+        if (!b || pollEl.classList.contains("is-voted")) return;
+        opts[b.dataset.i][1]++;
+        const total = opts.reduce((s, o) => s + o[1], 0);
+        pollEl.classList.add("is-voted"); b.classList.add("is-mine");
+        wrap.querySelectorAll(".opt").forEach((o, i) => {
+          const pct = Math.round((opts[i][1] / total) * 100);
+          o.querySelector(".bar").style.width = pct + "%";
+          o.querySelector(".pct").textContent = `${opts[i][1]} posts · ${pct}%`;
+        });
+        document.getElementById("poll-meta").textContent = `${total} of 28 posts have answered. Thanks, Post Fiji's answer is in.`;
+      });
+
+      const dg = document.getElementById("digest");
+      document.getElementById("digest-btn").addEventListener("click", () => dg.showModal());
+    })();
+  </script>
+</body>
+</html>

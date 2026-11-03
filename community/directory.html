@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Directory · APPC Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="community" data-cm="directory">
+  <div id="cm-top"></div>
+  <div class="cm-shell">
+    <div id="cm-side"></div>
+    <main class="cm-main" id="main">
+      <div class="cm-head">
+        <div><h1>Directory</h1><p>Find your counterpart at another post: the person who does your job somewhere else in the region.</p></div>
+      </div>
+      <div class="dir-filters" data-feature="Pilot · Member directory">
+        <label class="sr-only" for="q">Search people</label>
+        <input id="q" type="search" placeholder="Search by name, role or topic, e.g. customs">
+        <label class="sr-only" for="f-post">Member post</label>
+        <select id="f-post"><option value="">All member posts</option></select>
+        <label class="sr-only" for="f-group">Group</label>
+        <select id="f-group"><option value="">All groups</option></select>
+      </div>
+      <p id="count" style="color:var(--muted);font-size:15px"></p>
+      <div class="person-grid" id="people"></div>
+      <p class="concept-note" style="margin-top:28px" data-feature="Later · CRM sync and single sign-on">Later: profiles sync from APPC's Zoho CRM, so when a post nominates new staff, they appear here automatically.</p>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
+  <script src="../js/community.js"></script>
+  <script>
+    (function () {
+      const people = CM.people.filter((p) => p.id !== CM.me.id && p.id !== "appc");
+      const grid = document.getElementById("people");
+      grid.innerHTML = people.map(CM.render.person).join("");
+      const fp = document.getElementById("f-post"), fg = document.getElementById("f-group"), q = document.getElementById("q");
+      fp.innerHTML += APPC.members.map((m) => `<option value="${m.code}">${m.name}</option>`).join("");
+      fg.innerHTML += CM.groups.map((g) => `<option value="${g.id}">${g.title}</option>`).join("");
+      const apply = () => {
+        let n = 0;
+        grid.querySelectorAll(".person").forEach((el) => {
+          const ok = (!fp.value || el.dataset.org === fp.value) && (!fg.value || el.dataset.groups.split(" ").includes(fg.value)) && el.dataset.text.includes(q.value.trim().toLowerCase());
+          el.hidden = !ok; if (ok) n++;
+        });
+        document.getElementById("count").textContent = `${n} ${n === 1 ? "person" : "people"} shown · about 250 members across 28 posts in the live community`;
+      };
+      [fp, fg, q].forEach((el) => el.addEventListener("input", apply));
+      apply();
+    })();
+  </script>
+</body>
+</html>

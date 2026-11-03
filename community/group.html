@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regulatory and customs · APPC Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/community.css">
+</head>
+<body class="community" data-cm="groups" data-group="regulatory">
+  <div id="cm-top"></div>
+  <div class="cm-shell">
+    <div id="cm-side"></div>
+    <main class="cm-main" id="main">
+      <section class="group-hero" data-feature="Pilot · Private groups">
+        <div>
+          <span class="pill">Pilot group</span>
+          <h1>Regulatory and customs</h1>
+          <p>Compare how each post meets US and EU rules, duty collection and advance data requirements, and share what works.</p>
+          <div class="meta">
+            <span><span data-ic="users"></span>64 members from 23 posts</span>
+            <span><span data-ic="star"></span>Moderator: Kenji Morita, Japan Post</span>
+            <span><span data-ic="calendar"></span>Monthly question every first Monday</span>
+          </div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn--accent" href="index.html#compose">Ask the group</a>
+          <button class="btn btn--ghost-light" type="button" data-toast="You'll get an email for every new question in this group.">Notify me</button>
+        </div>
+      </section>
+
+      <div class="cm-cols">
+        <div>
+          <div class="tabs" role="tablist" aria-label="Group sections">
+            <button role="tab" aria-selected="true" aria-controls="tab-disc" id="t-disc">Discussions</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-files" id="t-files">Library</button>
+            <button role="tab" aria-selected="false" aria-controls="tab-members" id="t-members">Members</button>
+          </div>
+          <div class="tab-panel" id="tab-disc" role="tabpanel" aria-labelledby="t-disc" data-feature="Pilot · Discussions and Q&A"></div>
+          <div class="tab-panel panel" id="tab-files" role="tabpanel" aria-labelledby="t-files" style="margin-top:16px" hidden data-feature="Pilot · Document library"></div>
+          <div class="tab-panel" id="tab-members" role="tabpanel" aria-labelledby="t-members" style="margin-top:16px" hidden data-feature="Pilot · Member directory">
+            <div class="person-grid" id="members"></div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="panel" data-feature="Pilot · Announcements">
+            <h2>This month's question</h2>
+            <p style="margin:0 0 12px">"What one change has saved your counter staff the most time on customs data?"</p>
+            <a class="link-arrow" href="thread.html">Answer for your post <span data-icon="arrow"></span></a>
+          </div>
+          <div class="panel" data-feature="Pilot · Events calendar">
+            <h2>Group events</h2>
+            <ul class="mini-list" id="events"></ul>
+          </div>
+          <div class="panel">
+            <h2>Posts taking part</h2>
+            <div style="display:flex;flex-wrap:wrap;gap:6px" id="post-chips"></div>
+            <p style="font-size:14px;color:var(--muted);margin:12px 0 0">5 posts haven't joined yet. The secretariat follows up with each one.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js"></script>
+  <script src="../js/community.js"></script>
+  <script>
+    (function () {
+      const regThreads = [
+        CM.threads[0],
+        { group: "regulatory", kind: "Discussion", by: "aroha", ago: "4 days ago", replies: 5, helpful: 11, posts: ["AU", "SG", "FJ"],
+          title: "Template: letter to customers explaining new US duty charges", text: "Sharing the wording we used, with feedback from our call centre. Feel free to adapt it." },
+        { group: "regulatory", kind: "Question", by: "nimal", ago: "1 week ago", replies: 7, helpful: 8, posts: ["IN", "MY", "TH"],
+          title: "Has anyone tested the EU's new advance data requirements yet?", text: "We're planning a test with our customs authority next month and would like to learn from your experience." },
+        { group: "regulatory", kind: "Discussion", by: "appc", ago: "2 weeks ago", replies: 12, helpful: 24, posts: ["JP", "KR", "CN", "NZ"],
+          title: "Summary: what 18 posts told us about restarting US-bound parcels", text: "The secretariat has combined your answers into a two-page briefing for the Board. It's in the group library." }
+      ];
+      document.getElementById("tab-disc").innerHTML = regThreads.map((t) => CM.render.thread(t)).join("");
+      document.getElementById("tab-files").innerHTML = CM.files.map(CM.render.file).join("");
+      document.getElementById("members").innerHTML = CM.people.filter((p) => (p.groups || []).includes("regulatory") || p.id === CM.me.id).map(CM.render.person).join("");
+      document.getElementById("events").innerHTML = CM.events.filter((e) => e.group === "regulatory").map(CM.render.event).join("");
+      const joined = APPC.members.filter((m) => !["BN", "MV", "SB", "IR"].includes(m.code));
+      document.getElementById("post-chips").innerHTML = joined.map((m) => `<span class="pic pic--sm" title="${m.name}">${m.code}</span>`).join("");
+
+      const tabs = document.querySelectorAll('[role="tab"]');
+      tabs.forEach((t) => t.addEventListener("click", () => {
+        tabs.forEach((x) => { x.setAttribute("aria-selected", x === t); document.getElementById(x.getAttribute("aria-controls")).hidden = x !== t; });
+      }));
+    })();
+  </script>
+</body>
+</html>
